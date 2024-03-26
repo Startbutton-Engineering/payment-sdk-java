@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".StartPaymentActivity">
 
     <ScrollView
@@ -111,7 +111,7 @@
                 android:layout_width="409dp"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="11dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/greyBorder"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailView" />
@@ -136,7 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/satoshi"
+                android:fontFamily="sans-serif-medium"
                 android:text="N100,000,000.00"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
@@ -153,7 +153,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/background"
                 android:paddingStart="8dp"
                 android:paddingTop="8dp"
                 android:paddingEnd="8dp"
@@ -237,7 +237,7 @@
                     android:layout_width="369dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="18dp"
-                    android:background="?android:attr/listDivider"
+                    android:background="@color/greyBorder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -474,8 +474,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -489,16 +487,16 @@
                         android:fontFamily="@font/hk_grotesk_regular"
                         android:textStyle="normal"
                         android:textFontWeight="400"
-                        android:text="Card number" />
+                        android:text="Card Number" />
 
                     <EditText
                         android:id="@+id/cardNumberField"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="8dp"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:fontFamily="@font/hk_grotesk_regular"
                         android:textStyle="bold"
                         android:textFontWeight="600"
@@ -508,6 +506,7 @@
                         android:inputType="text|number"
                         android:background="@drawable/textfield_bg"
                         android:paddingLeft="5dp"
+                        android:maxLength="19"
                         android:text="" />
 
                 </LinearLayout>
@@ -516,8 +515,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -532,7 +529,7 @@
                             android:layout_height="wrap_content"
                             android:background="#ffffff"
                             android:fontFamily="@font/hk_grotesk_regular"
-                            android:text="Expiry date"
+                            android:text="Expiry"
                             android:textColor="@color/black"
                             android:textFontWeight="400"
                             android:textSize="14sp"
@@ -541,7 +538,7 @@
                         <EditText
                             android:id="@+id/cardExpiryField"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
+                            android:layout_height="50dp"
                             android:layout_alignParentLeft="true"
                             android:layout_marginTop="8dp"
                             android:background="@drawable/textfield_bg"
@@ -553,7 +550,8 @@
                             android:text=""
                             android:textColor="@color/black"
                             android:textFontWeight="600"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
+                            android:maxLength="5"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -581,18 +579,19 @@
                         <EditText
                             android:id="@+id/cardCvvField"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
+                            android:layout_height="50dp"
                             android:layout_marginTop="8dp"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:fontFamily="@font/hk_grotesk_regular"
                             android:textStyle="bold"
                             android:textFontWeight="600"
                             android:textColor="@color/black"
                             android:letterSpacing="0.2"
-                            android:hint="123"
+                            android:hint="CVV"
                             android:inputType="number"
                             android:background="@drawable/textfield_bg"
                             android:paddingLeft="5dp"
+                            android:maxLength="3"
                             android:text="" />
                     </LinearLayout>
 
@@ -639,7 +638,7 @@
                 android:layout_height="56dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/background"
                 android:fontFamily="@font/hk_grotesk_regular"
                 android:text="@string/change_payment_underline_text"
                 android:textColor="@color/darkOrange"
@@ -673,7 +672,7 @@
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="34dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/background"
             android:paddingStart="8dp"
             android:paddingTop="4dp"
             android:paddingEnd="8dp"

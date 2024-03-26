@@ -3,7 +3,7 @@
     <string name="change_underline_text"><u>Change</u></string>
     <string name="change_payment_underline_text"><u>Change payment method</u></string>
     <string name="timer_text">This account will <b>Expire</b> in </string>
-    <string name="pay_now">Pay now</string>
+    <string name="pay_now">Pay with card</string>
     <string name="i_ve_sent_the_money">I’ve sent the money</string>
     <string name="bank_transfer">Bank transfer</string>
     <string name="debit_card">Debit card</string>
