@@ -173,6 +173,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/total"
                 app:strokeColor="@color/lightOrange"
+                android:visibility="visible"
                 app:strokeWidth="1dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,6 +187,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:elevation="0dp"
                 app:cornerRadius="6dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button2">
@@ -428,6 +430,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -468,9 +471,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/total">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -479,7 +485,7 @@
                         android:layout_marginTop="0dp"
                         android:background="#ffffff"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:fontFamily="@font/hk_grotesk_regular"
                         android:textStyle="normal"
                         android:textFontWeight="400"
@@ -489,7 +495,7 @@
                         android:id="@+id/cardNumberField"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
                         android:textSize="18sp"
@@ -504,58 +510,59 @@
                         android:paddingLeft="5dp"
                         android:text="" />
 
-                </RelativeLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
                     android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        android:paddingEnd="8dp"
                         android:layout_weight="1">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginTop="0dp"
                             android:background="#ffffff"
-                            android:textSize="18sp"
                             android:fontFamily="@font/hk_grotesk_regular"
-                            android:textStyle="normal"
+                            android:text="Expiry date"
                             android:textColor="@color/black"
                             android:textFontWeight="400"
-                            android:text="Expiry date" />
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
 
                         <EditText
                             android:id="@+id/cardExpiryField"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
-                            android:layout_marginTop="24dp"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
-                            android:textSize="18sp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/textfield_bg"
                             android:fontFamily="@font/hk_grotesk_regular"
-                            android:textStyle="bold"
-                            android:textFontWeight="600"
-                            android:textColor="@color/black"
-                            android:letterSpacing="0.2"
                             android:hint="MM/YY"
                             android:inputType="text|number"
-                            android:background="@drawable/textfield_bg"
+                            android:letterSpacing="0.2"
                             android:paddingLeft="5dp"
-                            android:text="" />
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textFontWeight="600"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
+                        android:paddingStart="8dp"
+                        android:orientation="vertical"
                         android:layout_weight="1">
 
                         <TextView
@@ -564,20 +571,18 @@
                             android:layout_marginLeft="0dp"
                             android:layout_marginTop="0dp"
                             android:background="#ffffff"
-                            android:textSize="18sp"
+                            android:textSize="14sp"
                             android:fontFamily="@font/hk_grotesk_regular"
                             android:textStyle="normal"
                             android:textColor="@color/black"
                             android:textFontWeight="400"
-                            android:text="Expiry date" />
+                            android:text="CVV" />
 
                         <EditText
                             android:id="@+id/cardCvvField"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
-                            android:layout_marginTop="24dp"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
+                            android:layout_marginTop="8dp"
                             android:textSize="18sp"
                             android:fontFamily="@font/hk_grotesk_regular"
                             android:textStyle="bold"
@@ -589,7 +594,7 @@
                             android:background="@drawable/textfield_bg"
                             android:paddingLeft="5dp"
                             android:text="" />
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
