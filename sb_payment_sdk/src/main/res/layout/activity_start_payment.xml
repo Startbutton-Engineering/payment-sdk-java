@@ -46,7 +46,7 @@
             <Button
                 android:id="@+id/switchButton"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:height="30dp"
@@ -644,6 +644,7 @@
                 android:text="@string/change_payment_underline_text"
                 android:textColor="@color/darkOrange"
                 android:textFontWeight="600"
+                android:elevation="0dp"
                 android:textStyle="bold"
                 app:cornerRadius="8dp"
                 app:icon="@drawable/change_orange"
