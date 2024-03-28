@@ -56,15 +56,14 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-subprojects {
-    afterEvaluate {
-        publishing {
-            publications {
-                create<MavenPublication>("release") {
-                    groupId = "com.github.RhymezxCode"
-                    artifactId = "TrackMe"
-                    version = "1.0.0"
-                }
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components.findByName("android"))
+                groupId = "com.github.Startbutton-Engineering"
+                artifactId = "sb_payment_sdk"
+                version = "0.0.2"
             }
         }
     }
