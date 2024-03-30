@@ -26,11 +26,9 @@ android {
     }
 
     publishing {
-        publishing {
-            singleVariant("release") {
-                withSourcesJar()
-                withJavadocJar()
-            }
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
         }
     }
 }
@@ -52,17 +50,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-subprojects {
-    afterEvaluate {
-        publishing {
-            publications {
-                release(MavenPublication) {
-                    from components.release
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.startbutton-engineering'
+            artifactId = 'payment-sdk-java'
+            version = '0.0.10'
 
-                    groupId = 'com.github.startbutton-engineering'
-                    artifactId = 'sdk'
-                    version = '0.0.9'
-                }
+            afterEvaluate {
+                from components.release
             }
         }
     }
