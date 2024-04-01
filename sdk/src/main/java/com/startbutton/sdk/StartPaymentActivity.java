@@ -37,6 +37,7 @@ import com.startbutton.sdk.interfaces.OnActivityResultListener;
 import com.startbutton.sdk.models.APIResponse;
 import com.startbutton.sdk.models.ApiResponse;
 import com.startbutton.sdk.models.BankAccountModel;
+import com.startbutton.sdk.models.CurrencyType;
 import com.startbutton.sdk.models.DataResponse;
 import com.startbutton.sdk.models.ManualVerificationModel;
 import com.startbutton.sdk.models.PaymentInitModel;
@@ -116,6 +117,7 @@ public class StartPaymentActivity extends AppCompatActivity {
     private static OnActivityResultListener callback;
 
     private boolean isTransfer = true;
+    private boolean enableBank = true;
     private boolean isPaying = false;
 
     public StartPaymentActivity(){
@@ -178,9 +180,11 @@ public class StartPaymentActivity extends AppCompatActivity {
 
         initData();
 
-        initializeTransfer();
-
-        startTimer();
+        if(isTransfer){
+            initializeTransfer();
+        } else {
+            initializePaystackTransact();
+        }
     }
 
     private void startTimer() {
@@ -224,6 +228,16 @@ public class StartPaymentActivity extends AppCompatActivity {
         amount = intent.getDoubleExtra("amount", 100);
         currencyType = intent.getStringExtra("currencyType");
         accountList = intent.getStringExtra("bankList");
+
+        if(amount < 2500){
+            isTransfer = false;
+            enableBank = false;
+        }
+
+        if(Objects.equals(currencyType, CurrencyType.GHS.name())){
+            isTransfer = false;
+            enableBank = false;
+        }
 
         // Get currency formatter for the default locale
         Locale specificLocale = new Locale("en", currencyType.split("")[0]+currencyType.split("")[1]); // Example: United States
@@ -327,6 +341,10 @@ public class StartPaymentActivity extends AppCompatActivity {
             }
         });
 
+        if(!enableBank){
+            switchBtn.setVisibility(View.INVISIBLE);
+            switchBtn.setClickable(false);
+        }
         switchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -334,6 +352,10 @@ public class StartPaymentActivity extends AppCompatActivity {
             }
         });
 
+        if(!enableBank){
+            switchPaymentBtn.setVisibility(View.INVISIBLE);
+            switchPaymentBtn.setClickable(false);
+        }
         switchPaymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -410,7 +432,6 @@ public class StartPaymentActivity extends AppCompatActivity {
             cardPaymentLayout.setVisibility(View.INVISIBLE);
 
             timeLeftInMillis = startTimeInMillis;
-            startTimer();
 
             confirmationBtn.setText(R.string.i_ve_sent_the_money);
             modeTextView.setText(R.string.bank_transfer);
