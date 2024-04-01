@@ -506,7 +506,7 @@
                         android:inputType="text|number"
                         android:background="@drawable/textfield_bg"
                         android:paddingLeft="5dp"
-                        android:maxLength="19"
+                        android:maxLength="30"
                         android:text="" />
 
                 </LinearLayout>
