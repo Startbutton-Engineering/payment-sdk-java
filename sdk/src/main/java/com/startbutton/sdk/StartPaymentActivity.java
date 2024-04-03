@@ -500,10 +500,11 @@ public class StartPaymentActivity extends AppCompatActivity {
         int expiryYear = Integer.parseInt(cardExpiryArray[1]);
         int amountToPay = Integer.parseInt(String.valueOf(paystackDetailModel.getAmount() * 100).split("\\.")[0]);
 
-        if(cardNumber.length() != 16 || cvv.length() != 3 || cardExpiry.length() != 5){
+        if(cardNumber.isEmpty() || cvv.length() != 3 || cardExpiry.length() != 5){
             Toast.makeText(StartPaymentActivity.this, "Please enter a valid card details", Toast.LENGTH_SHORT).show();
             return;
         }
+
         Card card = new Card(cardNumber, expiryMonth, expiryYear, cvv);
 
         Charge charge = new Charge();
@@ -554,10 +555,6 @@ public class StartPaymentActivity extends AppCompatActivity {
 
             @Override
             public void beforeValidate(Transaction transaction) {
-                isPaying = false;
-                progressIndicator.setVisibility(View.INVISIBLE);
-                confirmationBtn.setText(R.string.pay_now);
-                confirmationBtn.setClickable(true);
                 //Log.d(TAG, "beforeValidate: " + transaction.getReference());
             }
 

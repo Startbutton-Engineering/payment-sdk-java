@@ -140,7 +140,7 @@ public class StartButtonPlugin {
         intent.putExtra("email", charge.getEmail());
         intent.putExtra("isLive", live);
         intent.putExtra("pubKey", pKey);
-        intent.putExtra("amount", charge.getAmount());
+        intent.putExtra("amount", charge.getAmount() / 100);
         intent.putExtra("reference", charge.getReference());
         intent.putExtra("currencyType", charge.getCurrencyType().name());
         intent.putExtra("bankList", jsonArray);

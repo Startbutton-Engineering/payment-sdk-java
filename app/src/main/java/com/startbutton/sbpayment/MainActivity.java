@@ -64,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             isoDateTime = now.format(formatter);
         }
-        Payment payment = new Payment(30000.00, "festy691@gmail.com", CurrencyType.NGN, "SBC-native-"+isoDateTime);
+        Payment payment = new Payment(300000.00, "festy691@gmail.com", CurrencyType.NGN, "SBC-native-"+isoDateTime);
         StartButtonPlugin.makePayment(this, payment, (resultCode, data) -> {
             // Handle the result here
+            Log.d("MainActivity", data.getMessage());
             if (resultCode == RESULT_OK && data != null) {
                 // Use the result value here
                 Log.d("MainActivity", data.getMessage());
-                Log.d("Returned value", data.getMessage());
             }
         });
     }
@@ -78,8 +78,10 @@ public class MainActivity extends AppCompatActivity {
     void initPayment(){
         try {
             Log.i(TAG, "Initializing");
-            String liveKey = "";
-            String devKey = "";
+            /*String liveKey = "";
+            String devKey = "";*/
+            String liveKey = "sb_482b6de023fa3d45c7c5be84e207927eaeaa2cbbe849a2f01075ea44697a1232";
+            String devKey = "sb_e73bc345e432e8dd5310577c2bc084429579d1c36f48328ddb719f474b8112c0";
             boolean isLive = false;
             StartButtonPlugin.initialize(isLive ? liveKey : devKey, isLive);
             Log.i(TAG, "Initialized");
